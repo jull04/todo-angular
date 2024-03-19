@@ -11,8 +11,8 @@
         <tbody>
           <tr *ngFor="let todo of todos;let i = index">
             <th scope="row">{{i+1}}</th>
-            <td>{{todo.name}}</td>
-            <td style="color: red; font-weight: bold;">X</td>
+            <td class="{{(!todo.isCompleted)?'done':''}}" (click)="done(i)">{{todo.name}}</td>
+            <td style="color: red; font-weight: bold;" (click)="remove(i)">x</td>
           </tr>
         </tbody>
       </table>
