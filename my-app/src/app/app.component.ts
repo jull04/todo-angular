@@ -15,6 +15,7 @@ export class AppComponent {
       let todo = new Todo();
       todo.name = this.newTodo;
       todo.isCompleted = true;
+      todo.important= true;
       this.todos.push(todo);
       this.newTodo = '';
     } else {
@@ -29,4 +30,9 @@ export class AppComponent {
   remove(id:number) {
     this.todos = this.todos.filter((v,i) => i !== id);
   }
+
+  star(id:number) {
+    this.todos[id].important = !this.todos[id].important;
+  }
+
 }
