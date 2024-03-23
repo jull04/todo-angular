@@ -15,20 +15,8 @@
           <option value="completed">Completed</option>
         </select>
       </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Enter task" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="newTodo">
-        <button class="btn btn-outline-secondary btn-primary" type="button" id="button-addon2" style="color: white;" (click)="saveTodo()">Add task</button>
-      </div>
-      <table class="table table-striped">
-        <tbody>
-          <tr *ngFor="let todo of todos;let i = index">
-            <th scope="row">{{i+1}}</th>
-            <td class="{{(!todo.isCompleted)?'done':''}}" (click)="done(i)">{{todo.name}}</td>
-            <td style="color: red; font-weight: bold;" (click)="remove(i)">x</td>
-            <td class="{{(!todo.important)?'star-important star':'star'}}" (click)="star(i)"></td>
-          </tr>
-        </tbody>
-      </table>
+      <app-todo-form></app-todo-form>
+      <app-todo-list></app-todo-list>
     </div>
   </div>
 </div>

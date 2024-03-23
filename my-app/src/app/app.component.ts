@@ -1,38 +1,14 @@
-import { Component } from '@angular/core';
-import { Todo } from './todo';
+import { Component, OnInit } from '@angular/core';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  todos: Todo[] = [];
-  newTodo: string;
+export class AppComponent implements OnInit {
+  constructor(public todoService: TodoService){}
 
-  saveTodo() {
-    if(this.newTodo) {
-      let todo = new Todo();
-      todo.name = this.newTodo;
-      todo.isCompleted = true;
-      todo.important= true;
-      this.todos.push(todo);
-      this.newTodo = '';
-    } else {
-      alert('Enter task')
-    }
+  ngOnInit(): void {
   }
-
-  done(id:number) {
-    this.todos[id].isCompleted = !this.todos[id].isCompleted;
-  }
-
-  remove(id:number) {
-    this.todos = this.todos.filter((v,i) => i !== id);
-  }
-
-  star(id:number) {
-    this.todos[id].important = !this.todos[id].important;
-  }
-
 }
