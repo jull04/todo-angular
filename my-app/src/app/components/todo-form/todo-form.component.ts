@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { TodoService } from '../services/todo.service';
-
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -13,9 +12,9 @@ export class TodoFormComponent {
 
   constructor(public todoService: TodoService) {}
 
-   saveTodo(newTodo: string) {
-    if (newTodo) {
-      this.todoService.saveTodo();
+   saveTodo() {
+    if (this.newTodo) {
+      this.todoService.saveTodo(this.newTodo);
       this.newTodo = '';
     } else {
       alert('Enter task')

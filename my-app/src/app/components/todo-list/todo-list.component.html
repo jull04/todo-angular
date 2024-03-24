@@ -1,0 +1,7 @@
+<table class="table table-striped">
+  <tbody>
+    <tr *ngFor="let todo of todoService.todos">
+      <app-todo-item [item]="todo"></app-todo-item>
+    </tr>
+  </tbody>
+</table>

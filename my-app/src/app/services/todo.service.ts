@@ -4,6 +4,7 @@ export interface IItem {
   name: string,
   isCompleted: boolean,
   important: boolean,
+  id: number,
 }
 
 @Injectable({
@@ -11,33 +12,35 @@ export interface IItem {
 })
 export class TodoService {
   public todos: Array<IItem> = [];
-  newTodo: string;
 
   constructor() { }
 
-  saveTodo() {
-    if(this.newTodo) {
+  saveTodo(newTodo: string) {
+    if(newTodo) {
       let todo: IItem = {
-        name: this.newTodo,
+        name: newTodo,
         isCompleted: true,
-        important: true
+        important: true,
+        id: Date.now(),
       };
       this.todos.push(todo);
-      this.newTodo = '';
     } else {
       alert('Enter task')
     }
   }
 
   done(id:number) {
-    this.todos[id].isCompleted = !this.todos[id].isCompleted;
+    const index = this.todos.findIndex(todo => todo.id === id)
+    this.todos[index].isCompleted = !this.todos[index].isCompleted;
   }
 
   remove(id:number) {
-    this.todos = this.todos.filter((v,i) => i !== id);
+    const index = this.todos.findIndex(todo => todo.id === id)
+    this.todos = this.todos.filter((v,i) => i !== index);
   }
 
   star(id:number) {
-    this.todos[id].important = !this.todos[id].important;
+    const index = this.todos.findIndex(todo => todo.id === id)
+    this.todos[index].important = !this.todos[index].important;
   }
 }
