@@ -3,20 +3,9 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-3">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search task" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary btn-primary" type="button" id="button-addon2" style="color: white;">Search</button>
-      </div>
-      <div>
-        <select style="margin-bottom: 20px;">
-          <option value="">All</option>
-          <option value="normal">Normal</option>
-          <option value="important">Important</option>
-          <option value="completed">Completed</option>
-        </select>
-      </div>
+      <app-search (onSearch)="handleSearch($event)"></app-search>
       <app-todo-form></app-todo-form>
-      <app-todo-list></app-todo-list>
+      <app-todo-list [search]="search" [filter]="filter"></app-todo-list>
     </div>
   </div>
 </div>

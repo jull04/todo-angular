@@ -1,19 +1,20 @@
-import { Component, Input } from '@angular/core';
-import { TodoService } from '../../services/todo.service';
-import { IItem } from '../../services/todo.service';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter} from '@angular/core';
+import { IItem } from '../../models/todo';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrl: './todo-item.component.scss'
+  styleUrl: './todo-item.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent {
 
-  constructor(public todoService: TodoService) {}
-
   @Input() item: IItem;
 
-  get position() {
-    return this.todoService.todos.findIndex(todo => todo.id === this.item.id)+1;
-  }
+  @Output() onDone = new EventEmitter<void>();
+
+  @Output() onRemove = new EventEmitter<void>();
+
+  @Output() onStar = new EventEmitter<void>();
+
 }

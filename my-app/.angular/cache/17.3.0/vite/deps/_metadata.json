@@ -1,49 +1,58 @@
 {
-  "hash": "396f6c71",
-  "configHash": "8673fa69",
+  "hash": "a9d2cbff",
+  "configHash": "60257685",
   "lockfileHash": "b3069a6b",
-  "browserHash": "5c78c4ae",
+  "browserHash": "5a942927",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "e1cda9ea",
+      "fileHash": "4f865486",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "0e60e5d2",
+      "fileHash": "a42abe36",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "7df5123b",
+      "fileHash": "c08dba9f",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "b0713cd0",
+      "fileHash": "6dfa8973",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "0f2ac938",
+      "fileHash": "35e2dc33",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "877337cb",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-VTJH4JM6": {
-      "file": "chunk-VTJH4JM6.js"
+    "chunk-S3Z54G2O": {
+      "file": "chunk-S3Z54G2O.js"
     },
-    "chunk-GQA3GX45": {
-      "file": "chunk-GQA3GX45.js"
+    "chunk-S5RE5MQJ": {
+      "file": "chunk-S5RE5MQJ.js"
     },
-    "chunk-QPEF36NU": {
-      "file": "chunk-QPEF36NU.js"
+    "chunk-ADD4EJ76": {
+      "file": "chunk-ADD4EJ76.js"
+    },
+    "chunk-SXIXOCJ4": {
+      "file": "chunk-SXIXOCJ4.js"
     }
   }
 }

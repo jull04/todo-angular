@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoItemComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    FilterPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

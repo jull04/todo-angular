@@ -1,0 +1,9 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+}

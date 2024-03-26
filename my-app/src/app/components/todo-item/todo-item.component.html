@@ -1,6 +1,5 @@
-<tr>
-<th scope="row">{{position}}</th>
-<td class="{{(!item.isCompleted)?'done':''}}" (click)="todoService.done(item.id)">{{item.name}}</td>
-<td style="color: red; font-weight: bold;" (click)="todoService.remove(item.id)">x</td>
-<td class="{{(!item.important)?'star-important star':'star'}}" (click)="todoService.star(item.id)"></td>
-</tr>
+<div class="itemContainer">
+<div class='name' [ngClass]="{'done': item.isCompleted}" (click)="onDone.emit()">{{item.name}}</div>
+<div class='delete' (click)="onRemove.emit()">x</div>
+<div class="star" [ngClass]="{'star-important':item.important}" (click)="onStar.emit()"></div>
+</div>

@@ -1,7 +1,8 @@
-<table class="table table-striped">
-  <tbody>
-    <tr *ngFor="let todo of todoService.todos">
-      <app-todo-item [item]="todo"></app-todo-item>
-    </tr>
-  </tbody>
-</table>
+<ng-container *ngIf="todoService.todos$ | async as todos">
+<div *ngFor="let todo of todos | filterTodos: search: filter; let i = index" class="listContainer">
+  <div class="itemContainer">
+    <div>{{i+1}}</div>
+    <app-todo-item [item]="todo" (onDone)="handleDone(todo.id)" (onStar)="handleStar(todo.id)" (onRemove)="handleRemove(todo.id)"></app-todo-item>
+  </div>
+</div>
+</ng-container>

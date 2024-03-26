@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
-
-export interface IItem {
-  name: string,
-  isCompleted: boolean,
-  important: boolean,
-  id: number,
-}
+import { BehaviorSubject } from 'rxjs';
+import { IItem } from '../models/todo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  public todos: Array<IItem> = [];
+  public todos$ = new BehaviorSubject<IItem[]>([]);
+  private todos: Array<IItem>=[];
 
   constructor() { }
 
@@ -19,11 +15,12 @@ export class TodoService {
     if(newTodo) {
       let todo: IItem = {
         name: newTodo,
-        isCompleted: true,
-        important: true,
+        isCompleted: false,
+        important: false,
         id: Date.now(),
       };
-      this.todos.push(todo);
+      this.todos = [...this.todos, todo];
+      this.todos$.next(this.todos);
     } else {
       alert('Enter task')
     }
@@ -32,15 +29,18 @@ export class TodoService {
   done(id:number) {
     const index = this.todos.findIndex(todo => todo.id === id)
     this.todos[index].isCompleted = !this.todos[index].isCompleted;
+    this.todos$.next([...this.todos]); // Обновляем BehaviorSubject
   }
 
   remove(id:number) {
     const index = this.todos.findIndex(todo => todo.id === id)
-    this.todos = this.todos.filter((v,i) => i !== index);
+    this.todos.splice(index, 1); // Удаляем элемент из массива
+    this.todos$.next([...this.todos]); // Обновляем BehaviorSubject
   }
 
   star(id:number) {
     const index = this.todos.findIndex(todo => todo.id === id)
     this.todos[index].important = !this.todos[index].important;
+    this.todos$.next([...this.todos]); // Обновляем BehaviorSubject
   }
 }
