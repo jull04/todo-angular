@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter} from '@angular/core';
 import { IItem } from '../../models/todo';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo-item',

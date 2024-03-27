@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 500px;
+  margin-right: 10px;
 }
 
 .name {
@@ -28,7 +29,7 @@
 }
 
 .delete {
-  color: red;
+  color: #dc3545;;
   font-weight: bold;
   cursor: pointer;
 }

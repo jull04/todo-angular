@@ -5,17 +5,19 @@
     placeholder="Search task"
     aria-describedby="button-addon2"
     [(ngModel)]="search"
-    >
+  />
   <button
     class="btn btn-outline-secondary btn-primary"
     type="button"
     id="button-addon2"
-    style="color: white;"
-    (click)="onSearch.emit({search: search, filter: filter})"
-    >Search</button>
+    style="color: white"
+    (click)="onSearch.emit({ search: search, filter: filter })"
+  >
+    Search
+  </button>
 </div>
 <div>
-  <select style="margin-bottom: 20px;" [(ngModel)]="filter">
+  <select style="margin-bottom: 20px; cursor: pointer;" [(ngModel)]="filter">
     <option value="">All</option>
     <option value="normal">Normal</option>
     <option value="important">Important</option>

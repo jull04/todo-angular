@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, EventEmitter, Output } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -11,15 +11,18 @@ export class TodoFormComponent {
 
   newTodo: string;
 
-  constructor(public todoService: TodoService) {}
-
-   saveTodo() {
-    if (this.newTodo) {
-      this.todoService.saveTodo(this.newTodo);
-      this.newTodo = '';
-      // this.cdr.detectChanges();
-    } else {
-      alert('Enter task')
-    }
-   }
+  @Output() onAddTask = new EventEmitter<string>();
 }
+
+  // constructor(public todoService: TodoService) {}
+
+  // saveTodo() {
+  //   if (this.newTodo) {
+  //     this.taskAdded.emit(this.newTodo); // Emitting the new task to the parent component
+  //     this.newTodo = '';
+  //   } else {
+  //     alert('Enter task');
+  //   }
+  // }
+
+
