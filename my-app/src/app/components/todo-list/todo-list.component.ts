@@ -11,6 +11,8 @@ export class TodoListComponent {
 
   constructor(public todoService: TodoService) {}
 
+  newTodo: string;
+
   @Input() search: string;
   @Input() filter: string;
 
@@ -25,5 +27,13 @@ export class TodoListComponent {
   handleDone(id: number) {
     this.todoService.done(id);
   }
-}
 
+  handleSearch(event: {search: string, filter: string}) {
+    this.search = event.search;
+    this.filter = event.filter;
+  }
+
+  handleAddTask(newTodo: string) {
+    this.todoService.saveTodo(newTodo);
+}
+}

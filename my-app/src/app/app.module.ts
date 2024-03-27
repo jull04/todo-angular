@@ -9,6 +9,9 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SearchComponent } from './components/search/search.component';
+import { AboutComponent } from './components/about/about.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,16 @@ import { SearchComponent } from './components/search/search.component';
     TodoItemComponent,
     TodoFormComponent,
     FilterPipe,
-    SearchComponent
+    SearchComponent,
+    AboutComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration()
