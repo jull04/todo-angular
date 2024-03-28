@@ -10,15 +10,15 @@ import { TodoService } from './services/todo.service';
 
 export class AppComponent implements OnInit {
 
-  search = "";
-  filter = "";
+  // search = "";
+  // filter = "";
 
-  constructor(public todoService: TodoService){}
+  // constructor(public todoService: TodoService){}
 
-  handleSearch(event: {search: string, filter: string}) {
-    this.search = event.search;
-    this.filter = event.filter;
-  }
+  // handleSearch(event: {search: string, filter: string}) {
+  //   this.search = event.search;
+  //   this.filter = event.filter;
+  // }
 
   ngOnInit(): void {
   }

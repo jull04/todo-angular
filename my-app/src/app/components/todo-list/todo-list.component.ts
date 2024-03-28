@@ -35,5 +35,6 @@ export class TodoListComponent {
 
   handleAddTask(newTodo: string) {
     this.todoService.saveTodo(newTodo);
+    this.newTodo = '';
 }
 }

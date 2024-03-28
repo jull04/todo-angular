@@ -1,20 +1,6 @@
 <section class='register'>
   <h1 class='register__title'>Добро пожаловать!</h1>
-  <form  class='register__form' name='profile-edit' noValidate>
-  <label class='register__label'>
-    <span class='register__span'>Имя</span>
-    <input
-    class='register__input'
-      minLength='3'
-      maxLength='20'
-      id='name'
-      name='name'
-      type='text'
-      placeholder='Введите имя'
-      required
-    />
-    <span class='register__error'></span>
-  </label>
+  <form  class='register__form' name='profile-edit' noValidate [formGroup]="form" (ngSubmit)="onSubmit()">
   <label class='register__label'>
     <span class='register__span'>E-mail</span>
     <input

@@ -2,7 +2,7 @@
   <input
     type="text"
     class="form-control"
-    placeholder="Search task"
+    placeholder="Найти задачу"
     aria-describedby="button-addon2"
     [(ngModel)]="search"
   />
@@ -13,14 +13,14 @@
     style="color: white"
     (click)="onSearch.emit({ search: search, filter: filter })"
   >
-    Search
+    Поиск
   </button>
 </div>
 <div>
   <select style="margin-bottom: 20px; cursor: pointer;" [(ngModel)]="filter">
-    <option value="">All</option>
-    <option value="normal">Normal</option>
-    <option value="important">Important</option>
-    <option value="completed">Completed</option>
+    <option value="">Все</option>
+    <option value="normal">Обычные</option>
+    <option value="important">Важные</option>
+    <option value="completed">Выполненные</option>
   </select>
 </div>
