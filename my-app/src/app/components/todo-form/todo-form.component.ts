@@ -12,16 +12,3 @@ export class TodoFormComponent {
 
   @Output() onAddTask = new EventEmitter<string>();
 }
-
-  // constructor(public todoService: TodoService) {}
-
-  // saveTodo() {
-  //   if (this.newTodo) {
-  //     this.taskAdded.emit(this.newTodo); // Emitting the new task to the parent component
-  //     this.newTodo = '';
-  //   } else {
-  //     alert('Enter task');
-  //   }
-  // }
-
-

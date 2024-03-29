@@ -1,5 +1,7 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
+import { IItem } from '../../models/todo';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,9 +9,15 @@ import { TodoService } from '../../services/todo.service';
   styleUrl: './todo-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit{
 
+  items: IItem[] = [];
   constructor(public todoService: TodoService) {}
+  ngOnInit(): void {
+    this.todoService
+      .fetch()
+      .subscribe();
+  }
 
   newTodo: string;
 
@@ -34,7 +42,14 @@ export class TodoListComponent {
   }
 
   handleAddTask(newTodo: string) {
-    this.todoService.saveTodo(newTodo);
+    this.todoService.saveTodo(
+      {
+        name: newTodo,
+        isCompleted: false,
+        important: false,
+        id: Date.now()
+      }
+    );
     this.newTodo = '';
-}
+  }
 }

@@ -1,23 +1,39 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
 
-  form: FormGroup
+  form!: FormGroup;
 
-  constructor(private auth: AuthService) {}
+  constructor(
+    private auth: AuthService,
+    private _fb: UntypedFormBuilder,
+    private _router: Router
+    ) {}
+  ngOnInit(): void {
+    this.form = this._fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      fio: ['', [Validators.required]]
+    })
+  }
 
   onSubmit() {
-    this.auth.login(this.form.value).subscribe(
-      () => console.log('success'),
-      error => console.error(),
-
-    )
+    this.auth
+      .login(this.form.value)
+      .pipe(
+        tap(() => {
+          this._router.navigate(['/todo'])
+        })
+      )
+      .subscribe()
   }
 }

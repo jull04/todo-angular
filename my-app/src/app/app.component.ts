@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TodoService } from './services/todo.service';
+import { User } from './models/user';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +12,16 @@ import { TodoService } from './services/todo.service';
 
 export class AppComponent implements OnInit {
 
-  // search = "";
-  // filter = "";
+  user!: User | null;
 
-  // constructor(public todoService: TodoService){}
+  constructor(public authService: AuthService){}
 
-  // handleSearch(event: {search: string, filter: string}) {
-  //   this.search = event.search;
-  //   this.filter = event.filter;
-  // }
+  handleLogout() {
+    this.authService.logout()
+    this.user = null;
+  }
 
   ngOnInit(): void {
+    this.user = this.authService.user
   }
 }

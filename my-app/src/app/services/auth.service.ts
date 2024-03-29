@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(user: User): Observable<{token: string}> {
+  login(user: User){
     return this.http.post<{token: string}>(`${this.baseUrl}/login`, user)
     .pipe (
       tap((res: { token: string }) =>
@@ -25,8 +25,8 @@ export class AuthService {
     );
   }
 
-  register(user: User): Observable<{token: string}> {
-    return this.http.post<{token: string}>(`${this.baseUrl}/register`, user)
+  register(user: User){
+    return this.http.post<{token: string}>(`${this.baseUrl}/registration`, user)
     .pipe (
       tap(({token}) => localStorage.setItem('user_token', token)),
     );
@@ -58,5 +58,11 @@ export class AuthService {
   public get token(): string | null {
     return localStorage.getItem('user_token');
   }
+
+  public logout() {
+    localStorage.removeItem('user_token');
+  }
+
 }
+
 

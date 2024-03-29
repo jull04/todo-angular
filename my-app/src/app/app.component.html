@@ -1,14 +1,18 @@
 <div>
-<header class="header">
-  <a class="about" routerLink="/about">О проекте</a>
-  <a class="about" routerLink="/todo">Todo List</a>
-  <div class=".header-container">
-    <a class="about" routerLink="/signup">Регистрация</a>
-    <a class="about" routerLink="/signin">Войти</a>
+  <header class="header">
+    <a class="about" routerLink="/about">О проекте</a>
+    <div class=".header-container" *ngIf="!user">
+      <a class="about" routerLink="/signup">Регистрация</a>
+      <a class="about" routerLink="/signin">Войти</a>
+    </div>
+    <div class=".header-container" *ngIf="user">
+      <a class="about" routerLink="/todo">Todo List</a>
+      <span class="about">{{user.email}}</span>
+      <a class="about" routerLink="/signin" (click)="handleLogout()">Выйти</a>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
   </div>
-</header>
-<router-outlet></router-outlet>
-</div>
 
 <!-- <h1 class="title">Todo List</h1>
 <br/>
