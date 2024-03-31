@@ -16,13 +16,13 @@ export class SignupComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private _router: Router,
-    private _fb: UntypedFormBuilder
+    private _fb: UntypedFormBuilder,
     ) {}
   ngOnInit(): void {
     this.form = this._fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      fio: ['', [Validators.required]]
+      fio: ['', [Validators.required]],
     })
   }
 

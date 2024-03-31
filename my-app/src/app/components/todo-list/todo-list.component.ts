@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit{
   constructor(public todoService: TodoService) {}
   ngOnInit(): void {
     this.todoService
-      .fetch()
+      .fetchTodos()
       .subscribe();
   }
 

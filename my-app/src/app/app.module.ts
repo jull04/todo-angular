@@ -12,7 +12,8 @@ import { SearchComponent } from './components/search/search.component';
 import { AboutComponent } from './components/about/about.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
+import { jwtInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration(),
-    provideHttpClient()
+    // provideClientHydration(),
+    provideHttpClient(withFetch()),
+    { provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

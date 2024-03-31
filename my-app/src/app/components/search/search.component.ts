@@ -1,15 +1,20 @@
-import { Component, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { IFilter } from '../../models/filter';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
+  search = '';
+  filter = '';
 
-  search = "";
-  filter = "";
-
-  @Output() onSearch = new EventEmitter<{search: string, filter: string}>();
+  @Output() onSearch = new EventEmitter<IFilter>();
 }

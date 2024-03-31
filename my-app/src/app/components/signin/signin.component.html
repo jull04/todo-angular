@@ -1,7 +1,7 @@
 <section class='register'>
   <h1 class='register__title'>Рады видеть!</h1>
   <form  class='register__form' name='profile-edit'  *ngIf="form"
-  [formGroup]="form" noValidate (ngSubmit)="onSubmit()">
+  [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
   <label class='register__label'>
     <span class='register__span'>E-mail</span>
     <input
@@ -32,7 +32,7 @@
   </label>
   <button
     class="login__submit"
-    type='submit'>Войти
+    type="submit">Войти
   </button>
   </form>
   <p class='register__subtitle'>Еще не зарегестрированы?

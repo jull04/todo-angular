@@ -1,6 +1,6 @@
 <section class='register'>
   <h1 class='register__title'>Добро пожаловать!</h1>
-  <form  class='register__form' name='profile-edit' noValidate *ngIf="form"
+  <form  class='register__form' name='profile-edit' novalidate *ngIf="form"
   [formGroup]="form"
   (ngSubmit)="onSubmit()">
   <label class='register__label'>
@@ -43,7 +43,7 @@
   </label>
   <button
     class="register__submit"
-    type='submit'>Зарегистрироваться
+    type="submit">Зарегистрироваться
   </button>
   </form>
   <p class='register__subtitle'>Уже зарегестрированы?

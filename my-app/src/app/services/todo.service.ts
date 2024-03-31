@@ -43,14 +43,13 @@ export class TodoService {
     this.todos$.next([...this.todos]); // Обновляем BehaviorSubject
   }
 
-  fetch = () => this._httpClient
+  fetchTodos = () => this._httpClient
     .get(this.url)
     .pipe(
       map((response: any) => {
         console.log(response);
         this.todos = [];
         this.todos = [...this.todos, ...response?.items];
-
         this.todos$.next(this.todos);
         return response?.items
       })

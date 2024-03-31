@@ -1,20 +1,22 @@
-import { HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
-import { inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
-export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
-  const authService = inject(AuthService);
-  const token = authService.token;
-  const isUrlCorrect: boolean = req.url.startsWith(environment.base_url);
+@Injectable ()
 
-  if (isUrlCorrect && token) {
-    req = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authService.token}`,
-      },
-    });
+export class jwtInterceptor implements HttpInterceptor {
+  constructor ( private authService: AuthService) {}
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    const updatedRequest = this.setAuthTokenToRequest(request);
+
+    return next.handle(updatedRequest);
   }
-
-  return next(req);
-};
+    private setAuthTokenToRequest(request: HttpRequest<any>): HttpRequest<any> {
+    const {token} = this.authService;
+    const isUrlCorrect: boolean = request.url.startsWith(environment.base_url);
+    return isUrlCorrect && token ? request.clone({setHeaders: {Authorization: `Bearer ${token}`}}) : request;
+  }
+}
