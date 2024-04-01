@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'todo',
     component: TodoListComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
+  },
+  {
+    path: '**',
+    redirectTo: '/about',
   },
 ];
 
