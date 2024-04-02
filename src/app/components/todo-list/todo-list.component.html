@@ -8,9 +8,9 @@
       <ng-container *ngIf="todoService.todos$ | async as todos">
         <div
           *ngFor="let todo of todos | filterTodos : search : filter; let i = index"
-          class="listContainer"
+          class="list-container"
         >
-          <div class="itemContainer">
+          <div class="item-container">
             <div class="number">{{ i + 1 }}</div>
             <app-todo-item
               [item]="todo"

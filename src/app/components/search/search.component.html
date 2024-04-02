@@ -3,21 +3,19 @@
     type="text"
     class="form-control"
     placeholder="Найти задачу"
-    aria-describedby="button-addon2"
     [(ngModel)]="search"
   />
   <button
-    class="btn btn-outline-secondary btn-primary"
+    class="btn btn-outline-secondary btn-primary search-button"
     type="button"
     id="button-addon2"
-    style="color: white"
     (click)="onSearch.emit({ search: search, filter: filter })"
   >
     Поиск
   </button>
 </div>
 <div>
-  <select style="margin-bottom: 20px; cursor: pointer;" [(ngModel)]="filter">
+  <select class="select" [(ngModel)]="filter">
     <option value="">Все</option>
     <option value="normal">Обычные</option>
     <option value="important">Важные</option>

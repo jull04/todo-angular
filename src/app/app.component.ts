@@ -1,6 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { TodoService } from './services/todo.service';
-import { User } from './models/user';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -11,8 +9,6 @@ import { AuthService } from './services/auth.service';
 })
 
 export class AppComponent implements OnInit {
-
-  // user!: User | null;
 
   constructor(public authService: AuthService){}
 

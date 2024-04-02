@@ -12,11 +12,13 @@ import { tap } from 'rxjs';
 export class TodoListComponent implements OnInit{
 
   items: IItem[] = [];
+
   constructor(public todoService: TodoService) {}
+
   ngOnInit(): void {
     this.todoService
       .fetchTodos()
-      .subscribe();
+      .subscribe()
   }
 
   newTodo: string;

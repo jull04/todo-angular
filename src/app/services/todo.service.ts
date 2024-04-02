@@ -47,7 +47,6 @@ export class TodoService {
     .get(this.url)
     .pipe(
       map((response: any) => {
-        console.log(response);
         this.todos = [];
         this.todos = [...this.todos, ...response?.items];
         this.todos$.next(this.todos);
