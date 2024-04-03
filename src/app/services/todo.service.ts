@@ -13,7 +13,7 @@ export class TodoService {
   url: string = '/assets/todo-list.json';
 
   constructor(
-    private _httpClient: HttpClient
+    private httpClient: HttpClient
   ) { }
 
   saveTodo(newTodo: IItem) {
@@ -43,7 +43,7 @@ export class TodoService {
     this.todos$.next([...this.todos]); // Обновляем BehaviorSubject
   }
 
-  fetchTodos = () => this._httpClient
+  fetchTodos = () => this.httpClient
     .get(this.url)
     .pipe(
       map((response: any) => {
