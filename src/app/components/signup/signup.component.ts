@@ -9,6 +9,7 @@ import { tap } from 'rxjs';
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
+
 export class SignupComponent implements OnInit {
 
   form!: FormGroup;
@@ -17,7 +18,8 @@ export class SignupComponent implements OnInit {
     private auth: AuthService,
     private _router: Router,
     private _fb: UntypedFormBuilder,
-    ) {}
+  ) {}
+
   ngOnInit(): void {
     this.form = this._fb.group({
       email: ['', [Validators.required]],
@@ -34,6 +36,6 @@ export class SignupComponent implements OnInit {
           this._router.navigate(['/signin'])
         })
       )
-      .subscribe()
+    .subscribe()
   }
 }

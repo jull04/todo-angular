@@ -5,7 +5,7 @@
       <a class="about" routerLink="/signup">Регистрация</a>
       <a class="about" routerLink="/signin">Войти</a>
     </div>
-    <div class=".header-container" *ngIf="(authService.user$ | async) as user">
+    <div class="header-container" *ngIf="(authService.user$ | async) as user">
       <a class="about" routerLink="/todo">Todo List</a>
       <span class="about">{{(authService.user$ | async)?.email}}</span>
       <a class="about" routerLink="/signin" (click)="handleLogout()">Выйти</a>

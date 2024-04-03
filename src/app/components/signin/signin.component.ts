@@ -17,7 +17,8 @@ export class SigninComponent implements OnInit {
     private auth: AuthService,
     private _fb: UntypedFormBuilder,
     private _router: Router,
-    ) {}
+  ) {}
+
   ngOnInit(): void {
     this.form = this._fb.group({
       email: ['', [Validators.required]],
@@ -27,7 +28,6 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value)
     this.auth
       .login(this.form.value)
       .pipe(
